@@ -1,6 +1,7 @@
 # Custom ignores for this repo
 
-# Nothing for the moment
+# Exercism metadata
+.exercism
 
 ###############################################################################
 
