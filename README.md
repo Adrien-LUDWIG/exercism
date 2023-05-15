@@ -12,8 +12,6 @@ My solutions to the [Exercism](https://exercism.org/) programming exercises. :ro
         └── <solution>
 ```
 
-To avoid redundancy, I only include the solution files in the repository. The instructions and tests can be found on the [Exercism website](https://exercism.org/) or downloaded from the CLI.
-
 ## Languages
 
 ### In progress
