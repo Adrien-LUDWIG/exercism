@@ -1,6 +1,6 @@
 # My Exercism solutions
 
-My solutions to the [Exercism](https://exercism.org/) programming exercises. :rocket:
+[My solutions](https://exercism.org/profiles/Adrien-ANTON-LUDWIG) to the [Exercism](https://exercism.org/) programming exercises. :rocket:
 
 ## Repository structure
 
