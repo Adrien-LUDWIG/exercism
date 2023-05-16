@@ -44,4 +44,4 @@ December | December Diversions |
 
 ## Contributing
 
-I welcome any **constructive** and **supportive** feedback via issues. :party_face:
+I welcome any **constructive** and **supportive** feedback via issues. 🥳
