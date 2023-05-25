@@ -1,0 +1,16 @@
+acronym.abbreviate : Text -> Text
+acronym.abbreviate test = 
+  cleaned = Text.map (char -> 
+    match char with
+      ?' -> ?s
+      ?- -> ? 
+      _ -> (if
+              isLetter char
+              then
+              char
+              else
+              ? )) test
+
+  words = Text.words cleaned
+  initials = List.map (word -> Text.take 1 word) words
+  Text.toUppercase (Text.join "" initials)
