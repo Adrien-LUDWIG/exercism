@@ -1,16 +1,24 @@
+{{
+  ``abbreviate fullName`` is a function that takes a full name and returns the
+  accronym of that name.
+}}
 acronym.abbreviate : Text -> Text
-acronym.abbreviate test = 
-  cleaned = Text.map (char -> 
-    match char with
-      ?' -> ?s
-      ?- -> ? 
-      _ -> (if
-              isLetter char
-              then
-              char
-              else
-              ? )) test
+acronym.abbreviate fullName = 
+  -- Keep only letters and apostrophes, replace everything else with a space
+  cleanedFullName = (
+    Text.map (
+      char ->
+        if (isLetter char) || (char == ?')
+        then char
+        else ? 
+    ) fullName
+  )
 
-  words = Text.words cleaned
+  -- Split the name into words
+  words = Text.words cleanedFullName
+
+  -- Take the first letter of each word
   initials = List.map (word -> Text.take 1 word) words
+
+  -- Join the initials together and convert to uppercase
   Text.toUppercase (Text.join "" initials)
