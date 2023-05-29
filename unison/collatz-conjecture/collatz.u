@@ -1,0 +1,24 @@
+{{ 
+  ``next`` is a function that takes a natural number and returns the next 
+    number in the Collatz sequence. 
+}}
+collatzConjecture.next : Nat -> Nat
+collatzConjecture.next n = 
+  if mod n 2 == 0
+  then n / 2
+  else 3 * n + 1
+
+{{ 
+  ``steps`` is a function that takes a natural number and returns the number of
+  steps required to reach 1 from that number, applying the Collatz conjecture.
+}}
+collatzConjecture.steps : Nat -> Optional Nat
+collatzConjecture.steps n = 
+  match n with
+  0 -> None
+  1 -> Some 0
+  _ -> (
+    match steps (next n) with
+    None -> None
+    Some steps -> Some (steps + 1)
+  )
