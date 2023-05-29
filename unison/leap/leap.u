@@ -1,0 +1,7 @@
+{{
+  ``leap`` is a function that takes a year and returns a boolean indicating
+  whether it is a leap year.
+}}
+leap.leap : Nat -> Boolean
+leap.leap year =
+  (mod year 4 == 0) && ((mod year 100 != 0) || (mod year 400 == 0))
