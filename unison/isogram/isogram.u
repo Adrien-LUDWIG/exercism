@@ -1,0 +1,18 @@
+{{
+  ``isIsogram`` is a function that determines whether a string is an isogram, 
+  which is a word or phrase that has no repeating letters. 
+}}
+isogram.isIsogram : Text -> Boolean
+isogram.isIsogram text =
+
+  -- Make the text lowercase
+  textLower = toLowercase text
+
+  -- Convert the text to a bag of characters, which is a map of characters to counts
+  characters = toBag textLower
+
+  -- Keep only the letters
+  letters = Bag.filter (char -> isLetter char) characters
+
+  -- If there are no more letters after removing one of each, then it's an isogram 
+  (mapCounts Nat.decrement letters) == Bag.empty
