@@ -19,6 +19,7 @@
 - Rust :crab:
 - Python :snake:
 - Go
+- Unison
 
 ## 12in23
 
@@ -33,7 +34,7 @@ January | Intimate introduction | Python
 February | Functional February |
 March | Mechanical March | Go
 April | Analytical April |
-May | Mindshifting May |
+May | Mindshifting May | Unison
 June | Summer of Sexps  |
 July | Jurassic July |
 August | Apps of August |
