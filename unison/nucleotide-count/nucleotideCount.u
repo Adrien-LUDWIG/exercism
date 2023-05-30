@@ -1,0 +1,17 @@
+{{
+  ``nucleotideCounts`` counts the number of times each nucleotide occurs in a DNA strand.
+}}
+nucleotideCount.nucleotideCounts : Text -> Optional (Map Text Nat)
+nucleotideCount.nucleotideCounts nucleotides =
+
+  go : Text -> Map Text Nat -> Optional (Map Text Nat)
+  go nucleotides counts = 
+    match toCharList nucleotides with
+    head +: tail -> (
+      match Map.get (Char.toText head) counts with
+        None -> None
+        Some count -> go (Text.fromCharList tail) (Map.insert (Char.toText head) (count + 1) counts)
+    )
+    [] -> Some counts 
+
+  go nucleotides (Map.fromList [("A", 0), ("C", 0), ("G", 0), ("T", 0)])
