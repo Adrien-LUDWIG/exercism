@@ -6,7 +6,7 @@ acronym.abbreviate : Text -> Text
 acronym.abbreviate fullName = 
   -- Keep only letters and apostrophes, replace everything else with a space
   cleanedFullName = (
-    Text.map (
+    map (
       char ->
         if (isLetter char) || (char == ?')
         then char
@@ -17,8 +17,5 @@ acronym.abbreviate fullName =
   -- Split the name into words
   words = Text.words cleanedFullName
 
-  -- Take the first letter of each word
-  initials = List.map (word -> Text.take 1 word) words
-
-  -- Join the initials together and convert to uppercase
-  Text.toUppercase (Text.join "" initials)
+  -- Fold over the words, concatenating the uppercase first letter of each word
+  List.foldLeft (acc -> word -> acc ++ (word |> Text.take 1 |> toUppercase )) "" words
