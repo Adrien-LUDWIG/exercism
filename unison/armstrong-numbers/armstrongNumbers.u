@@ -1,0 +1,33 @@
+{{
+
+  ``isArmstrongNumber`` is a function that takes a number and returns a boolean
+  indicating whether the number is an Armstrong number or not.
+
+  An Armstrong number is a number that is the sum of its own digits each raised
+  to the power of the number of digits.
+}}
+armstrongNumbers.isArmstrongNumber : Nat -> Boolean
+armstrongNumbers.isArmstrongNumber number =
+  sumOfPowers number (digitsCount number) == number
+
+
+{{
+  ``sumOfPowers`` is a function that takes a number and its number of digits and
+  returns the sum of its digits each raised to the power of the number of digits.
+}}
+armstrongNumbers.sumOfPowers : Nat -> Nat -> Nat
+armstrongNumbers.sumOfPowers number nbDigits =
+    if number < 10
+    then pow number nbDigits
+    else pow (mod number 10) nbDigits + sumOfPowers (number / 10) nbDigits
+
+
+{{
+  ``digitsCount`` is a function that takes a natural number and returns its
+  number of digits.
+}}
+Nat.digitsCount : Nat -> Nat
+Nat.digitsCount number =
+  if number < 10
+  then 1
+  else 1 + digitsCount (number / 10)
