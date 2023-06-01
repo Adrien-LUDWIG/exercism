@@ -13,11 +13,10 @@ collatzConjecture.next n =
   steps required to reach 1 from that number, applying the Collatz conjecture.
 }}
 collatzConjecture.steps : Nat -> Optional Nat
-collatzConjecture.steps n = 
-  match n with
+collatzConjecture.steps = cases
   0 -> None
   1 -> Some 0
-  _ -> (
+  n -> (
     match steps (next n) with
     None -> None
     Some steps -> Some (steps + 1)
