@@ -1,0 +1,25 @@
+{{
+  ``toRNA`` is a function that takes a DNA strand and returns its RNA complement
+  (per RNA transcription).
+}}
+rna.toRNA : Text -> Optional Text
+rna.toRNA = cases 
+  "" -> Some ""
+
+  -- Map the first nucleotide and recuse on the rest of the strand
+  -- Concatenate the results if both are ``Some``, otherwise return ``None``
+  dna -> Optional.map2 (Text.++) (dna |> take 1 |> rna.mapNucleotide) (dna |> drop 1 |> rna.toRNA)
+
+{{
+  ``mapNucleotide`` is a function that takes a DNA nucleotide and returns its
+  RNA complement (per RNA transcription).
+}}
+rna.mapNucleotide : Text -> Optional Text
+rna.mapNucleotide = cases
+  "G" -> Some "C"
+  "C" -> Some "G"
+  "T" -> Some "A"
+  "A" -> Some "U"
+
+  -- If the character is not a valid nucleotide, return ``None``
+  _ -> None
