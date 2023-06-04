@@ -1,25 +1,47 @@
 {{
-  ``toRNA`` is a function that takes a DNA strand and returns its RNA complement
+  ``rna.toRNA`` is a function that takes a DNA strand and returns its RNA complement
   (per RNA transcription).
+  If any of the characters in the DNA strand are not valid nucleotides, the function
+  returns ``None``.
+
+  **Examples**
+
+  ```
+  rna.toRNA "ACGTGGTCTTAA"
+  ``` 
+
+  ```
+  rna.toRNA "ACGTXXXCTTAA"
+  ```
 }}
 rna.toRNA : Text -> Optional Text
-rna.toRNA = cases 
-  "" -> Some ""
-
-  -- Map the first nucleotide and recuse on the rest of the strand
-  -- Concatenate the results if both are ``Some``, otherwise return ``None``
-  dna -> Optional.map2 (Text.++) (dna |> take 1 |> rna.mapNucleotide) (dna |> drop 1 |> rna.toRNA)
+rna.toRNA dna =
+  dna
+    |> toCharList
+    |> map rna.mapNucleotide
+    |> foldLeft (map2 (Text.++)) (Some "")
 
 {{
-  ``mapNucleotide`` is a function that takes a DNA nucleotide and returns its
+  ``rna.mapNucleotide`` is a function that takes a DNA nucleotide and returns its
   RNA complement (per RNA transcription).
+  If the character is not a valid nucleotide, the function returns ``None``.
+
+  **Examples**
+
+  ```
+  rna.mapNucleotide ?G
+  ``` 
+
+  ```
+  rna.mapNucleotide ?X
+  ``` 
 }}
-rna.mapNucleotide : Text -> Optional Text
+rna.mapNucleotide : Char -> Optional Text
 rna.mapNucleotide = cases
-  "G" -> Some "C"
-  "C" -> Some "G"
-  "T" -> Some "A"
-  "A" -> Some "U"
+  ?G -> Some "C"
+  ?C -> Some "G"
+  ?T -> Some "A"
+  ?A -> Some "U"
 
   -- If the character is not a valid nucleotide, return ``None``
   _ -> None
