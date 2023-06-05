@@ -1,0 +1,13 @@
+{{
+  ``reverseString.reverse`` takes a string and reverses it.
+
+  **Examples**
+
+  ```
+  reverseString.reverse "Follow the white rabbit!"
+  ```
+}}
+reverseString.reverse : Text -> Text
+reverseString.reverse = cases
+  "" -> ""
+  text -> reverseString.reverse (drop 1 text) ++ (take 1 text)
