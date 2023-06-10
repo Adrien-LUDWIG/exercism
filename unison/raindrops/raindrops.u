@@ -1,0 +1,31 @@
+{{
+  ``raindrops.convert`` takes a natural number and converts it to a string following these rules :
+  - has 3 as a factor, add "Pling" to the result.
+  - has 5 as a factor, add "Plang" to the result.
+  - has 7 as a factor, add "Plong" to the result.
+  - does not have any of 3, 5, or 7 as a factor, the result should be the digits of the number.
+
+**Examples**
+
+```
+raindrops.convert 42
+```
+
+```
+raindrops.convert 105
+```
+
+```
+raindrops.convert 34
+```
+}}
+raindrops.convert : Nat -> Text
+raindrops.convert n =
+
+  match (
+    (if (mod n 3) == 0 then "Pling" else "") ++ 
+    (if (mod n 5) == 0 then "Plang" else "") ++
+    (if (mod n 7) == 0 then "Plong" else "")
+  ) with
+    "" -> Nat.toText n
+    text -> text
