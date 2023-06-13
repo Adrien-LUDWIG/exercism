@@ -5,8 +5,8 @@
 (provide leap-year?)
 
 (define (leap-year? year)
-  (and
-   (divides? 4 year)
-   (or
-    (not (divides? 100 year))
-    (divides? 400 year))))
+  (cond
+    [(divides? 400 year)]
+    [(divides? 100 year) #f]
+    [(divides? 4 year)]
+    [else #f]))
