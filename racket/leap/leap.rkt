@@ -1,10 +1,12 @@
 #lang racket
 
+(require math/number-theory)
+
 (provide leap-year?)
 
 (define (leap-year? year)
   (and
-   (= (modulo year 4) 0)
+   (divides? 4 year)
    (or
-    (not (= (modulo year 100) 0))
-    (= (modulo year 400) 0))))
+    (not (divides? 100 year))
+    (divides? 400 year))))
