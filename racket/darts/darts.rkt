@@ -4,10 +4,9 @@
 
 ; `score` returns the dart throw score given the dart's coordinates (x, y).
 (define (score x y)
-  (let* ([distance (sqrt (+ (* x x) (* y y)))]
-        [in (lambda (r) (<= distance r))])
+  (let ([distance (sqrt (+ (* x x) (* y y)))])
     (cond
-      [(in 1) 10]
-      [(in 5) 5]
-      [(in 10) 1]
+      [(<= distance 1) 10]
+      [(<= distance 5) 5]
+      [(<= distance 10) 1]
       [else 0])))
