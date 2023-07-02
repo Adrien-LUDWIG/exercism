@@ -1,0 +1,7 @@
+# .gitignore for Exercism Fortran Track
+
+# Test library downloaded by CMake
+testlib
+
+# Build directory
+build
