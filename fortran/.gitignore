@@ -5,3 +5,6 @@ testlib
 
 # Build directory
 build
+
+# Fortran module files
+*.mod
