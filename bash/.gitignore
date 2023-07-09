@@ -1,0 +1,4 @@
+# Bash .gitignore
+
+# See README#Tests
+*/bats-extra.bash
