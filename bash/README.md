@@ -36,6 +36,8 @@ hello_world.bats
 
 ### Used
 
+- Bash man page
+
 ## VSCode extensions
 
 - [Bash Debug]()
