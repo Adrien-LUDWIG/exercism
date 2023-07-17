@@ -20,6 +20,9 @@
 - Python :snake:
 - Go
 - Unison
+- Racket
+- Bash
+- Fortran
 
 ## 12in23
 
@@ -35,8 +38,8 @@ February | Functional February |
 March | Mechanical March | Go
 April | Analytical April |
 May | Mindshifting May | Unison
-June | Summer of Sexps  |
-July | Jurassic July |
+June | Summer of Sexps  | Racket
+July | Jurassic July | Fortran
 August | Apps of August |
 September | Slimline September |
 October | Object Oriented October |
