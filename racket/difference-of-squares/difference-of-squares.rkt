@@ -6,7 +6,8 @@
 (define (sum-of-squares number)
   (/ (* number (add1 number) (add1 (* 2 number))) 6))
 
-; (Σn)² = n(n+1) / 2 
+; Σn = n(n+1) / 2
+; (Σn)² = (n(n+1) / 2) ** 2
 (define (square-of-sum number)
   (expt (/ (* number (add1 number)) 2) 2))
 
