@@ -23,6 +23,8 @@
 - Racket
 - Bash
 - Fortran
+- JavaScript
+- AWK
 
 ## 12in23
 
@@ -40,8 +42,8 @@ April | Analytical April |
 May | Mindshifting May | Unison
 June | Summer of Sexps  | Racket
 July | Jurassic July | Fortran
-August | Apps of August |
-September | Slimline September |
+August | Apps of August | Javascript
+September | Slimline September | AWK
 October | Object Oriented October |
 November | Nibbly November |
 December | December Diversions |
