@@ -1,0 +1,4 @@
+# C++ .gitignore
+
+# Compilation files
+build/
