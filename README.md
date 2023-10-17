@@ -25,6 +25,7 @@
 - Fortran
 - JavaScript
 - AWK
+- C++
 
 ## 12in23
 
