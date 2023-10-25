@@ -13,21 +13,11 @@ class SimpleCalculator
       raise ArgumentError.new("Operands should be intergers.")
     end
 
-    result = nil
-
-    case operation
-    when '+'
-      result = first_operand + second_operand
-    when '*'
-      result = first_operand * second_operand
-    when '/'
-      begin
-        result = first_operand / second_operand
-      rescue ZeroDivisionError
-        return "Division by zero is not allowed."
-      end
+    begin
+      result = first_operand.send(operation, second_operand)
+      "#{first_operand} #{operation} #{second_operand} = #{result}"
+    rescue ZeroDivisionError
+      return "Division by zero is not allowed."
     end
-
-    "#{first_operand} #{operation} #{second_operand} = #{result}"
   end
 end
