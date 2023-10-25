@@ -9,3 +9,8 @@
 ### Used
 
 -
+
+### VS Code extensions
+
+- [Code completion](https://github.com/castwide/vscode-solargraph)
+- [Formatter](https://github.com/rubocop/vscode-rubocop)
