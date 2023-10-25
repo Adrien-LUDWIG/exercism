@@ -26,6 +26,7 @@
 - JavaScript
 - AWK
 - C++
+- Ruby 💎
 
 ## 12in23
 
@@ -36,7 +37,7 @@ Here are the languages I'm learning:
 
 Month | Topic | Language
 --- | --- | ---
-January | Intimate introduction | Python
+January | Intimate introduction | Python 🐍
 February | Functional February |
 March | Mechanical March | Go
 April | Analytical April |
@@ -45,7 +46,7 @@ June | Summer of Sexps  | Racket
 July | Jurassic July | Fortran
 August | Apps of August | Javascript
 September | Slimline September | AWK
-October | Object Oriented October |
+October | Object Oriented October | Ruby 💎
 November | Nibbly November |
 December | December Diversions |
 
