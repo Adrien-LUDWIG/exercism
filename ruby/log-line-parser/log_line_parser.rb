@@ -1,17 +1,13 @@
 class LogLineParser
+  attr_reader :log_level, :message
+
   def initialize(line)
-    @line = line
-  end
-
-  def message
-    @line[@line.index(':') + 1..].strip()
-  end
-
-  def log_level
-    @line[1..@line.index(']') - 1].downcase()
+    @log_level, @message = line.split(':')
+    @log_level = @log_level[1..-2].downcase
+    @message.strip!
   end
 
   def reformat
-    "#{message} (#{log_level})"
+    "#{@message} (#{@log_level})"
   end
 end
