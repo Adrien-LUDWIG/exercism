@@ -1,0 +1,5 @@
+# Web Assembly .gitignore
+
+# pnpm generated files
+node_modules
+pnpm-lock.yaml
