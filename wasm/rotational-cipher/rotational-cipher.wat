@@ -20,18 +20,26 @@
         (i32.le_u (local.get $char) (global.get $Z))))
   )
 
-  (func $encodeChar (param $char i32) (param $shiftKey i32) (param $offset i32) (result i32)
-    (return (i32.add 
-              (i32.rem_u 
-                (i32.add 
-                  (i32.sub (local.get $char) (local.get $offset))
-                  (local.get $shiftKey)
-                )
-                (i32.const 26)
-              )
-              (local.get $offset)
-            )
-    )
+  (func $encodeChar (param $char i32) (param $shiftKey i32) (result i32)
+    (local $offset i32)
+
+    (if (call $isLowercaseLetter (local.get $char))
+      (then (local.set $offset (global.get $a)))
+    (else (if (call $isUppercaseLetter (local.get $char))
+      (then (local.set $offset (global.get $A)))
+    (else (return (local.get $char))))))
+
+    ;; Translation
+    (local.set $char (i32.sub (local.get $char) (local.get $offset)))
+
+    ;; Rotation
+    (local.set $char (i32.add (local.get $char) (local.get $shiftKey)))
+    (local.set $char (i32.rem_u (local.get $char) (i32.const 26)))
+
+    ;; Translation
+    (local.set $char (i32.add (local.get $char) (local.get $offset)))
+
+    (return (local.get $char))
   )
 
   (func (export "rotate") (param $offset i32) (param $length i32) (param $shiftKey i32) (result i32 i32)
@@ -50,14 +58,7 @@
           (local.set $char (i32.load8_u (local.get $char_index)))
 
           ;; Encode it
-          (if (call $isLowercaseLetter (local.get $char))
-            (then (local.set $char (call $encodeChar (local.get $char) 
-                                                     (local.get $shiftKey)
-                                                     (global.get $a))))
-          (else (if (call $isUppercaseLetter (local.get $char))
-            (then (local.set $char (call $encodeChar (local.get $char) 
-                                                     (local.get $shiftKey)
-                                                     (global.get $A)))))))
+          (local.set $char (call $encodeChar (local.get $char) (local.get $shiftKey)))
           
           ;; Write it back to memory
           (i32.store8 (local.get $char_index) (local.get $char))
