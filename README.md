@@ -27,6 +27,7 @@
 - AWK
 - C++
 - Ruby 💎
+- Web Assembly (WASM) 🧩
 
 ## 12in23
 
@@ -47,7 +48,7 @@ July | Jurassic July | Fortran
 August | Apps of August | Javascript
 September | Slimline September | AWK
 October | Object Oriented October | Ruby 💎
-November | Nibbly November |
+November | Nibbly November | Web Assembly (WASM) 🧩
 December | December Diversions |
 
 ## Contributing
