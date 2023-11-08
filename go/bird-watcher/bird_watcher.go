@@ -17,7 +17,7 @@ func TotalBirdCount(birdsPerDay []int) int {
 func BirdsInWeek(birdsPerDay []int, week int) int {
 	total := 0
 
-	last_day := (week-1)*7 + 7
+	last_day := week * 7
 
 	for day := last_day - 7; day < last_day; day++ {
 		total += birdsPerDay[day]
