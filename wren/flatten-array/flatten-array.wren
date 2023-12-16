@@ -3,7 +3,7 @@ class Flatten {
     var flat_list = []
 
     for (x in list) if (x) {
-      if (x is Num) flat_list.add(x) else flat_list = flat_list + flatten(x)
+      if (x is Sequence) flat_list = flat_list + flatten(x) else flat_list.add(x)
     }
 
     return flat_list
