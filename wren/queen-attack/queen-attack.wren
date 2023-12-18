@@ -17,10 +17,7 @@ class QueenAttack {
     }
   }
 
-  construct new() {
-    _white = [7, 3]
-    _black = [0, 3]
-  }
+  static new() { new({}) }
 
   white { _white }
   black { _black }
