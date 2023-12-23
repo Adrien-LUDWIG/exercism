@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 
-x=$1
-y=$2
-
-if [[ $# != 2 || -n ${x//[0-9.-]/} || -n ${y//[0-9.-]/} ]]; then
-  echo "Usage: darts <x> <y>"
+die() {
+  echo "$1"
   exit 1
-fi
+}
 
-distance=$(bc <<<"scale=3; dist=sqrt(($x*$x+$y*$y)); scale=0; dist * 1000 / 1")
+(($# != 2)) && die "Usage: darts <x> <y>"
+[[ -n ${x//[0-9.-]/} || -n ${y//[0-9.-]/} ]] && die "Arguments must be numeric values"
+
+distance=$(bc <<<"scale=3; dist=sqrt(($1*$1+$2*$2)); scale=0; dist * 1000 / 1")
 
 if [[ distance -gt 10000 ]]; then
   echo "0"
