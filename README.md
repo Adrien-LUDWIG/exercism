@@ -21,13 +21,14 @@
 - Go
 - Unison
 - Racket
-- Bash
+- Bash 💲
 - Fortran
 - JavaScript
-- AWK
+- AWK 🐧
 - C++
 - Ruby 💎
 - Web Assembly (WASM) 🧩
+- Wren 🐦
 
 ## 12in23
 
@@ -46,10 +47,10 @@ May | Mindshifting May | Unison
 June | Summer of Sexps  | Racket
 July | Jurassic July | Fortran
 August | Apps of August | Javascript
-September | Slimline September | AWK
+September | Slimline September | (AWK 🐧) Bash
 October | Object Oriented October | Ruby 💎
 November | Nibbly November | Web Assembly (WASM) 🧩
-December | December Diversions |
+December | December Diversions | Wren 🐦
 
 ## Contributing
 
