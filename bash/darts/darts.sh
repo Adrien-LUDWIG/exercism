@@ -5,8 +5,12 @@ die() {
   exit 1
 }
 
+is_numeric() {
+  [[ $1 =~ ^[+-]?[0-9]+(.[0-9])?$ ]]
+}
+
 (($# != 2)) && die "Usage: darts <x> <y>"
-[[ -n ${x//[0-9.-]/} || -n ${y//[0-9.-]/} ]] && die "Arguments must be numeric values"
+(is_numeric "$1" && is_numeric "$2") || die "Arguments must be numeric values"
 
 distance=$(bc <<<"scale=3; dist=sqrt(($1*$1+$2*$2)); scale=0; dist * 1000 / 1")
 
