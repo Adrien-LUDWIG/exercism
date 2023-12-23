@@ -10,7 +10,7 @@ is_numeric() {
 }
 
 (($# != 2)) && die "Usage: darts <x> <y>"
-(is_numeric "$1" && is_numeric "$2") || die "Arguments must be numeric values"
+for i; do is_numeric "$i" || die "Arguments must be numeric values"; done
 
 bc <<<"
   scale=3
