@@ -14,8 +14,8 @@ substring_length=$2
 ((substring_length == 0)) && die "slice length cannot be zero"
 ((substring_length < 0)) && die "slice length cannot be negative"
 
-for i in $(seq 0 $((string_length - substring_length - 1))); do
-  echo -n "${string:i:substring_length} "
+for i in $(seq 0 $((string_length - substring_length))); do
+  substrings+=("${string:i:substring_length}")
 done
 
-echo -n "${string:$((string_length - substring_length)):substring_length}"
+echo "${substrings[*]}"
