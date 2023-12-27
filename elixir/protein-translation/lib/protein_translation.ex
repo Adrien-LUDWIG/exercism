@@ -11,13 +11,13 @@ defmodule ProteinTranslation do
     |> reduce_rna([])
   end
 
-  defp reduce_rna([], rna), do: {:ok, rna}
+  defp reduce_rna([], rna), do: {:ok, Enum.reverse(rna)}
 
   defp reduce_rna([codon | codons], rna) do
-    case protein = to_protein(codon) do
+    case to_protein(codon) do
       "invalid codon" -> {:error, "invalid RNA"}
-      "STOP" -> {:ok, rna}
-      _ -> reduce_rna(codons, rna ++ [protein])
+      "STOP" -> {:ok, Enum.reverse(rna)}
+      protein -> reduce_rna(codons, [protein | rna])
     end
   end
 
