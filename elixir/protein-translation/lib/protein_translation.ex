@@ -4,20 +4,18 @@ defmodule ProteinTranslation do
   """
   @spec of_rna(String.t()) :: {:ok, list(String.t())} | {:error, String.t()}
   def of_rna(rna) do
-    rna
-    |> String.codepoints()
-    |> Enum.chunk_every(3)
-    |> Enum.map(&Enum.join/1)
-    |> reduce_rna([])
+    reduce_rna(rna, [])
   end
 
-  defp reduce_rna([], rna), do: {:ok, Enum.reverse(rna)}
+  defp reduce_rna("", proteins), do: {:ok, Enum.reverse(proteins)}
 
-  defp reduce_rna([codon | codons], rna) do
+  defp reduce_rna(rna, proteins) do
+    {codon, rna} = String.split_at(rna, 3)
+
     case to_protein(codon) do
       "invalid codon" -> {:error, "invalid RNA"}
-      "STOP" -> {:ok, Enum.reverse(rna)}
-      protein -> reduce_rna(codons, [protein | rna])
+      "STOP" -> reduce_rna("", proteins)
+      protein -> reduce_rna(rna, [protein | proteins])
     end
   end
 
