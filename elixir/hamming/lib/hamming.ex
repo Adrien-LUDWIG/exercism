@@ -8,12 +8,12 @@ defmodule Hamming do
   {:ok, 4}
   """
   @spec hamming_distance([char], [char]) :: {:ok, non_neg_integer} | {:error, String.t()}
-  def hamming_distance(string1, string2) do
-    try do
-      {:ok, hamming(string1, string2, 0)}
-    rescue
-      FunctionClauseError -> {:error, "strands must be of equal length"}
-    end
+  def hamming_distance(string1, string2) when length(string1) != length(string2) do
+    {:error, "strands must be of equal length"}
+  end
+
+  def hamming_distance(string1, string2) when length(string1) == length(string2) do
+    {:ok, hamming(string1, string2, 0)}
   end
 
   defp hamming(~c"", ~c"", diff_count), do: diff_count
