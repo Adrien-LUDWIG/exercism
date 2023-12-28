@@ -10,10 +10,12 @@ def saddle_points(matrix):
         raise ValueError("irregular matrix")
 
     # Find saddle points
-    matrix_t = list(zip(*matrix))
+    row_maximas = list(map(max, matrix))
+    col_maximas = list(map(min, zip(*matrix)))
+
     return [
         {"row": i + 1, "column": j + 1}
-        for i, row in enumerate(matrix)
-        for j, height in enumerate(row)
-        if max(row) == height and min(matrix_t[j]) == height
+        for i, row_maxima in enumerate(row_maximas)
+        for j, col_maxima in enumerate(col_maximas)
+        if row_maxima == col_maxima
     ]
