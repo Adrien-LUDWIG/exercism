@@ -20,13 +20,15 @@ defmodule RobotSimulator do
   Valid directions are: `:north`, `:east`, `:south`, `:west`
   """
   @spec create(direction, position) :: robot() | {:error, String.t()}
-  def create(direction, position) when not is_direction(direction),
+  def create(direction \\ :north, position \\ {0, 0})
+
+  def create(direction, _position) when not is_direction(direction),
     do: {:error, "invalid direction"}
 
-  def create(direction, position) when not is_position(position),
+  def create(_direction, position) when not is_position(position),
     do: {:error, "invalid position"}
 
-  def create(direction \\ :north, position \\ {0, 0}), do: %{dir: direction, pos: position}
+  def create(direction, position), do: %{dir: direction, pos: position}
 
   @doc """
   Simulate the robot's movement given a string of instructions.
