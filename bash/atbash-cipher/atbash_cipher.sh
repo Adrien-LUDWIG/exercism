@@ -2,7 +2,7 @@
 
 chr() {
   [ "$1" -lt 256 ] || return 1
-  printf "\\$(printf '%03o' "$1")"
+  printf "%b" "\0$(printf '%03o' "$1")"
 }
 
 ord() {
