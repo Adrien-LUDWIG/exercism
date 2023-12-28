@@ -57,7 +57,7 @@ defmodule Yacht do
 
     cond do
       freq |> Map.values() |> Enum.max() >= 4 ->
-        4 * (freq |> Enum.find(fn {key, val} -> val >= 4 end) |> elem(0))
+        4 * (freq |> Enum.find(fn {_key, val} -> val >= 4 end) |> elem(0))
 
       true ->
         0
