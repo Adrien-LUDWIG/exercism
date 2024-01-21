@@ -1,3 +1,6 @@
+"""Currency exchange calculator"""
+
+
 def exchange_money(budget, exchange_rate):
     """
 
