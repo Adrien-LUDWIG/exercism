@@ -65,5 +65,4 @@ def exchangeable_value(budget, exchange_rate, spread, denomination):
     exchange_rate *= 1 + spread / 100
     foreign_value = exchange_money(budget, exchange_rate)
     max_bills_count = get_number_of_bills(foreign_value, denomination)
-    exchangeable_value = get_value_of_bills(denomination, max_bills_count)
-    return exchangeable_value
+    return get_value_of_bills(denomination, max_bills_count)
